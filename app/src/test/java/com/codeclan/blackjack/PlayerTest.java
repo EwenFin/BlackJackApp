@@ -39,7 +39,7 @@ public class PlayerTest {
         deck.addCardToDeck(card1);
         deck.addCardToDeck(card2);
         deck.addCardToDeck(card3);
-        deck.deal(player);
+        deck.dealCard(player);
         assertEquals(1, player.getHand().cardCount());
         assertEquals(54, deck.cardCount());
     }

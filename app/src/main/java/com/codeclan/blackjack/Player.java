@@ -13,12 +13,19 @@ public class Player {
         this.hand = hand;
     }
 
+    public Player(String name) {
+    }
+
     public String getName(){
         return this.name;
     }
 
     public Hand getHand(){
         return this.hand;
+    }
+
+    public void addCardToHand(Card card) {
+        hand.addCardToHand(card);
     }
 
 }

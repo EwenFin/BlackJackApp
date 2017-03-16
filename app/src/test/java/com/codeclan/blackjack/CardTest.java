@@ -43,7 +43,7 @@ public class CardTest{
 
     @Test
     public void testCardValue(){
-        assertEquals(13, card1.cardValue());
-        assertEquals(1, card3.cardValue());
+        assertEquals(10, card1.cardValue());
+        assertEquals(11, card3.cardValue());
     }
 }

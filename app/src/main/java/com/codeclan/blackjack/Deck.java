@@ -12,7 +12,9 @@ public class Deck {
         buildDeck();
     }
 
-
+    public ArrayList<Card> getCards() {
+        return cards;
+    }
 
     public int cardCount(){
         return cards.size();
@@ -30,12 +32,13 @@ public class Deck {
         Collections.shuffle(this.cards);
     }
 
-    public void deal(Player player){
-        Card card = cards.get(0);
-        Hand hand = player.getHand();
-        hand.addCardToHand(card);
-        removeCardFromDeck(card);
-    }
+    public Card dealCard(Player player){
+            Card card = cards.get(cards.size() - 1);
+            Hand hand = player.getHand();
+            hand.addCardToHand(card);
+            removeCardFromDeck(card);
+            return card;
+        }
 
     public void buildDeck(){
         for (Suit suit : Suit.values()) {

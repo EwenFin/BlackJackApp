@@ -24,6 +24,11 @@ public class Card {
     }
 
     public int cardValue(){
-        return this.rank.ordinal() + 1;
+        int value =  this.rank.ordinal() + 1;
+        int points = 0;
+        points = points + value;
+        if(value == 1) points += 10;
+        if(value > 10) points = 10;
+        return points;
     }
 }
