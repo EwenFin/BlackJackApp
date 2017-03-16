@@ -1,0 +1,57 @@
+package com.codeclan.blackjack;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static junit.framework.Assert.assertEquals;
+
+public class HandTest{
+
+    Hand hand;
+
+    Card card1;
+    Card card2;
+
+
+    @Before
+    public void before(){
+        hand = new Hand();
+        card1 = new Card(Suit.HEARTS, Rank.KING);
+        card2 = new Card(Suit.DIAMONDS, Rank.JACK);
+    }
+
+    @Test
+    public void canAddCardToHand(){
+        hand.addCardToHand(card1);
+        assertEquals(1, hand.cardCount());
+    }
+
+    @Test
+    public void canDiscard(){
+        hand.addCardToHand(card1);
+        hand.discardHand();
+        assertEquals(0, hand.cardCount());
+    }
+
+    @Test
+    public void canShowHand(){
+        hand.addCardToHand(card1);
+        hand.addCardToHand(card2);
+        assertEquals("KING of HEARTS, JACK of DIAMONDS, ", hand.showHand());
+    }
+
+    @Test
+    public void testHandValue(){
+        hand.addCardToHand(card1);
+        assertEquals(13, hand.handValue());
+    }
+
+    @Test
+    public void testGetHand(){
+        hand.addCardToHand(card1);
+        assertEquals(card1, hand.getHand().get(0));
+
+
+    }
+
+}
