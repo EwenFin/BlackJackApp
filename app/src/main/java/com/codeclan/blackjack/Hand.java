@@ -39,7 +39,7 @@ public class Hand {
     public String showHand(){
         String result = "";
         for(Card card : hand){
-            result = result + card.showCard() + ", ";
+            result = result + card.showCard() + "  ";
         }
         return result;
     }

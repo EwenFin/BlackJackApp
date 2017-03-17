@@ -23,6 +23,10 @@ public class BlackJack {
         }
     }
 
+    public void hit(Player player){
+        deck.dealCard(player);
+
+    }
 
     public int getScore(Hand hand){
         int score = hand.handValue();
@@ -30,7 +34,7 @@ public class BlackJack {
     }
 
     public String showHands(){
-        String result = "";
+        String result = " ";
         for (Player player : this.players){
             result = result + player.getName() + " has the " +player.getHand().showHand();
 

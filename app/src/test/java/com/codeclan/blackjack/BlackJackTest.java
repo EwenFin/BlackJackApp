@@ -71,6 +71,13 @@ public class BlackJackTest {
 
         }
 
+        @Test
+        public void testHit(){
+            player1hand.addCardToHand(card1);
+            blackjack.hit(player1);
+            assertEquals(2, player1hand.cardCount());
+        }
+
 
 
 //        @Test

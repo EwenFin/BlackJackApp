@@ -12,6 +12,7 @@ public class BlackJackActivity extends AppCompatActivity {
 
     TextView gameText;
     TextView yourhandtext;
+    TextView yournewhandtext;
     BlackJack blackJack;
     Player player1;
     Player dealer;
@@ -46,10 +47,24 @@ public class BlackJackActivity extends AppCompatActivity {
     public void onDealButtonClicked(View view) {
 
         player1hand.discardHand();
+        deck.shuffle();
         blackJack.deal();
         String yourhand = player1hand.showHand();
-        yourhandtext = (TextView) findViewById(R.id.your_hand_text);
-        yourhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue());
+        yourhandtext = (TextView)findViewById(R.id.your_hand_text);
+        Card dealercard = (Card) dealerhand.getHand().get(0);
+        yourhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue() + "\n \n The Dealer is showing the " + dealercard.showCard());
+
+    }
+
+    public void onHitButtonClicked(View view){
+        deck.shuffle();
+        blackJack.hit(player1);
+        String yourhand = player1hand.showHand();
+        if(player1hand.handValue() > 21){
+            yournewhandtext = (TextView)findViewById(R.id.your_new_hand_text);
+            yournewhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue() + " You've busted out!");
+        }
+
 
     }
 
