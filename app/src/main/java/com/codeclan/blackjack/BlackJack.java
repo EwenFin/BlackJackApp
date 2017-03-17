@@ -17,9 +17,9 @@ public class BlackJack {
     }
 
     public void deal(){
-        Card card;
         for(Player player : players){
-            card = deck.dealCard(player);
+            deck.dealCard(player);
+            deck.dealCard(player);
         }
     }
 

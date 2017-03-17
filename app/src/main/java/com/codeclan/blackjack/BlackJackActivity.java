@@ -3,6 +3,7 @@ package com.codeclan.blackjack;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -36,4 +37,9 @@ public class BlackJackActivity extends AppCompatActivity {
         gameText = (TextView)findViewById(R.id.game_text);
         gameText.setText("Welcome to the BlackJack Table "+ name);
     }
+
+    public void onDealButtonClicked(View view){
+        blackJack.deal();
+    }
+
 }

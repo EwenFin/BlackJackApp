@@ -28,6 +28,7 @@ public class BlackJackTest {
 
         @Before
         public void before(){
+            deck = new Deck();
             players = new ArrayList<Player>();
             player1hand = new Hand();
             player2hand = new Hand();
@@ -47,7 +48,6 @@ public class BlackJackTest {
 
         @Test
         public void canDealToPlayers(){
-            blackjack.deal();
             blackjack.deal();
             assertEquals(2, player1hand.cardCount());
             assertEquals(2, player2hand.cardCount());
