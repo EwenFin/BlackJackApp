@@ -34,7 +34,8 @@ public class Deck {
 
     public Card dealCard(Player player){
             Card card = cards.get(cards.size() - 1);
-            player.addCardToHand(card);
+            Hand hand = player.getHand();
+            hand.addCardToHand(card);
             removeCardFromDeck(card);
             return card;
         }
