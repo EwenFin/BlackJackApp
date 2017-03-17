@@ -2,4 +2,7 @@
     <string name="app_name">BlackJack</string>
     <string name="play_blackjack">Play BlackJack</string>
     <string name="enter_name">Player 1 Enter your Name</string>
+    <string name="stay">Stay</string>
+    <string name="hit">Hit</string>
+    <string name="deal">Deal</string>
 </resources>

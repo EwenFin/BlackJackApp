@@ -10,6 +10,11 @@ import java.util.ArrayList;
 public class BlackJackActivity extends AppCompatActivity {
 
     TextView gameText;
+    BlackJack blackJack;
+    Player player1;
+    Player dealer;
+    ArrayList<Player> players;
+    Deck deck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,17 +24,16 @@ public class BlackJackActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         String name = extras.getString("Name");
-//        Deck deck = new Deck();
-//        ArrayList<Player> players = new ArrayList<Player>();
-        Player player1 = new Player(name);
-//        Player player2 = new Player("Dealer");
-//        players.add(player1);
-//        players.add(player2);
-//        BlackJack blackJack = new BlackJack(players, deck);
-//        blackJack.deal();
-//        blackJack.deal();
+        deck = new Deck();
+        players = new ArrayList<Player>();
+        player1 = new Player(name);
+        dealer = new Player("Dealer");
+        players.add(player1);
+        players.add(dealer);
+        blackJack = new BlackJack(players, deck);
+
 
         gameText = (TextView)findViewById(R.id.game_text);
-        gameText.setText(name + " has " + player1.hand.showHand());
+        gameText.setText("Welcome to the BlackJack Table "+ name);
     }
 }
