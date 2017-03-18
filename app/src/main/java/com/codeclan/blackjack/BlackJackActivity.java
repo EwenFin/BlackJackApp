@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class BlackJackActivity extends AppCompatActivity {
@@ -88,7 +90,9 @@ public class BlackJackActivity extends AppCompatActivity {
 
         String yourhand = player1hand.showHand();
         yourhandtext = (TextView)findViewById(R.id.your_hand_text);
+        yournewhandtext = (TextView)findViewById(R.id.your_new_hand_text);
 
+        yournewhandtext.setText("");
         yourhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue() + "\n \n The Dealer is showing the " + dealerCard.showCard());
 
     }
@@ -97,6 +101,9 @@ public class BlackJackActivity extends AppCompatActivity {
         deck.shuffle();
         blackJack.hit(player1);
         String yourhand = player1hand.showHand();
+        yourhandtext = (TextView) findViewById(R.id.your_hand_text);
+        yourhandtext.setText("");
+
         if (player1hand.cardCount() == 3) {
             Card card3 = (Card) player1hand.getHand().get(2);
             int card3id = card3.GetCardDrawableId(this);
@@ -117,13 +124,12 @@ public class BlackJackActivity extends AppCompatActivity {
             card5image.setImageResource(card5id);
         }
 
-
+        yournewhandtext = (TextView) findViewById(R.id.your_new_hand_text);
+        yournewhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue());
         if (player1hand.handValue() > 21) {
-            yournewhandtext = (TextView) findViewById(R.id.your_new_hand_text);
-            yournewhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue() + " You've busted out!");
-        } else
-            yournewhandtext = (TextView) findViewById(R.id.your_new_hand_text);
-            yournewhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue());
+            yourhandtext.setText("YOU'VE BUSTED OUT");
+            yournewhandtext.setText("");
+        }
     }
     public void onStayButtonClicked(View view){
 
