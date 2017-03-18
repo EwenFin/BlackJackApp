@@ -6,11 +6,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.jar.Attributes;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    TextView welcome;
     EditText NameEntry;
     Button BlackJackButton;
 
@@ -21,7 +26,12 @@ public class MainActivity extends AppCompatActivity {
 
         NameEntry = (EditText)findViewById(R.id.name_entry);
         BlackJackButton = (Button)findViewById(R.id.play_blackjack);
+
+        welcome = (TextView)findViewById(R.id.welcome);
+        welcome.setText("Welcome to CodeClanCasino, please gamble responsibly...");
     }
+
+
 
     public void onBlackJackButtonClicked(View button){
         String name = NameEntry.getText().toString();

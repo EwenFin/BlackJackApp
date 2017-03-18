@@ -79,6 +79,13 @@ public class BlackJackActivity extends AppCompatActivity {
         card6image = (ImageView)findViewById(R.id.card6image);
         card6image.setImageResource(dealercardid);
 
+        card3image = (ImageView)findViewById(R.id.card3image);
+        card3image.setImageResource(android.R.color.transparent);
+        card4image = (ImageView)findViewById(R.id.card4image);
+        card4image.setImageResource(android.R.color.transparent);
+        card5image = (ImageView)findViewById(R.id.card5image);
+        card5image.setImageResource(android.R.color.transparent);
+
         String yourhand = player1hand.showHand();
         yourhandtext = (TextView)findViewById(R.id.your_hand_text);
 
@@ -86,15 +93,38 @@ public class BlackJackActivity extends AppCompatActivity {
 
     }
 
-    public void onHitButtonClicked(View view){
+    public void onHitButtonClicked(View view) {
         deck.shuffle();
         blackJack.hit(player1);
-//        String yourhand = player1hand.showHand();
-//        if(player1hand.handValue() > 21){
-//            yournewhandtext = (TextView)findViewById(R.id.your_new_hand_text);
-//            yournewhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue() + " You've busted out!");
+        String yourhand = player1hand.showHand();
+        if (player1hand.cardCount() == 3) {
+            Card card3 = (Card) player1hand.getHand().get(2);
+            int card3id = card3.GetCardDrawableId(this);
+
+            card3image = (ImageView) findViewById(R.id.card3image);
+            card3image.setImageResource(card3id);
+        } else if (player1hand.cardCount() == 4) {
+            Card card4 = (Card) player1hand.getHand().get(3);
+            int card4id = card4.GetCardDrawableId(this);
+
+            card4image = (ImageView) findViewById(R.id.card4image);
+            card4image.setImageResource(card4id);
+        } else if (player1hand.cardCount() == 5) {
+            Card card5 = (Card) player1hand.getHand().get(4);
+            int card5id = card5.GetCardDrawableId(this);
+
+            card5image = (ImageView) findViewById(R.id.card5image);
+            card5image.setImageResource(card5id);
         }
 
+
+        if (player1hand.handValue() > 21) {
+            yournewhandtext = (TextView) findViewById(R.id.your_new_hand_text);
+            yournewhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue() + " You've busted out!");
+        } else
+            yournewhandtext = (TextView) findViewById(R.id.your_new_hand_text);
+            yournewhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue());
+    }
     public void onStayButtonClicked(View view){
 
     }

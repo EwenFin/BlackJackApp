@@ -8,6 +8,22 @@
     android:background="@color/green"
     tools:context="com.codeclan.blackjack.MainActivity">
 
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="top"
+        android:textSize="36dp"
+        android:textAlignment="center"
+        android:padding="30dp"/>
+
+
     <EditText
         android:id="@+id/name_entry"
         android:layout_width="290dp"
