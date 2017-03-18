@@ -2,6 +2,7 @@ package com.codeclan.blackjack;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,60 +29,60 @@ public class BlackJackActivity extends AppCompatActivity {
     Hand player1hand;
     Hand dealerhand;
 
-    private final static int[] cardIds = new int[]{
-            R.drawable.ace_of_spades,
-            R.drawable.two_of_spades,
-            R.drawable.three_of_spades,
-            R.drawable.four_of_spades,
-            R.drawable.five_of_spades,
-            R.drawable.six_of_spades,
-            R.drawable.seven_of_spades,
-            R.drawable.eight_of_spades,
-            R.drawable.nine_of_spades,
-            R.drawable.ten_of_spades,
-            R.drawable.jack_of_spades,
-            R.drawable.queen_of_spades,
-            R.drawable.king_of_spades,
-            R.drawable.ace_of_clubs,
-            R.drawable.two_of_clubs,
-            R.drawable.three_of_clubs,
-            R.drawable.four_of_clubs,
-            R.drawable.five_of_clubs,
-            R.drawable.six_of_clubs,
-            R.drawable.seven_of_clubs,
-            R.drawable.eight_of_clubs,
-            R.drawable.nine_of_clubs,
-            R.drawable.ten_of_clubs,
-            R.drawable.jack_of_clubs,
-            R.drawable.queen_of_clubs,
-            R.drawable.king_of_clubs,
-            R.drawable.ace_of_diamonds,
-            R.drawable.two_of_diamonds,
-            R.drawable.three_of_diamonds,
-            R.drawable.four_of_diamonds,
-            R.drawable.five_of_diamonds,
-            R.drawable.six_of_diamonds,
-            R.drawable.seven_of_diamonds,
-            R.drawable.eight_of_diamonds,
-            R.drawable.nine_of_diamonds,
-            R.drawable.ten_of_diamonds,
-            R.drawable.jack_of_diamonds,
-            R.drawable.queen_of_diamonds,
-            R.drawable.king_of_diamonds,
-            R.drawable.ace_of_hearts,
-            R.drawable.two_of_hearts,
-            R.drawable.three_of_hearts,
-            R.drawable.four_of_hearts,
-            R.drawable.five_of_hearts,
-            R.drawable.six_of_hearts,
-            R.drawable.seven_of_hearts,
-            R.drawable.eight_of_hearts,
-            R.drawable.nine_of_hearts,
-            R.drawable.ten_of_hearts,
-            R.drawable.jack_of_hearts,
-            R.drawable.queen_of_hearts,
-            R.drawable.king_of_hearts,
-        };
+//    private final static int[] cardIds = new int[]{
+//            R.drawable.ace_of_spades,
+//            R.drawable.two_of_spades,
+//            R.drawable.three_of_spades,
+//            R.drawable.four_of_spades,
+//            R.drawable.five_of_spades,
+//            R.drawable.six_of_spades,
+//            R.drawable.seven_of_spades,
+//            R.drawable.eight_of_spades,
+//            R.drawable.nine_of_spades,
+//            R.drawable.ten_of_spades,
+//            R.drawable.jack_of_spades,
+//            R.drawable.queen_of_spades,
+//            R.drawable.king_of_spades,
+//            R.drawable.ace_of_clubs,
+//            R.drawable.two_of_clubs,
+//            R.drawable.three_of_clubs,
+//            R.drawable.four_of_clubs,
+//            R.drawable.five_of_clubs,
+//            R.drawable.six_of_clubs,
+//            R.drawable.seven_of_clubs,
+//            R.drawable.eight_of_clubs,
+//            R.drawable.nine_of_clubs,
+//            R.drawable.ten_of_clubs,
+//            R.drawable.jack_of_clubs,
+//            R.drawable.queen_of_clubs,
+//            R.drawable.king_of_clubs,
+//            R.drawable.ace_of_diamonds,
+//            R.drawable.two_of_diamonds,
+//            R.drawable.three_of_diamonds,
+//            R.drawable.four_of_diamonds,
+//            R.drawable.five_of_diamonds,
+//            R.drawable.six_of_diamonds,
+//            R.drawable.seven_of_diamonds,
+//            R.drawable.eight_of_diamonds,
+//            R.drawable.nine_of_diamonds,
+//            R.drawable.ten_of_diamonds,
+//            R.drawable.jack_of_diamonds,
+//            R.drawable.queen_of_diamonds,
+//            R.drawable.king_of_diamonds,
+//            R.drawable.ace_of_hearts,
+//            R.drawable.two_of_hearts,
+//            R.drawable.three_of_hearts,
+//            R.drawable.four_of_hearts,
+//            R.drawable.five_of_hearts,
+//            R.drawable.six_of_hearts,
+//            R.drawable.seven_of_hearts,
+//            R.drawable.eight_of_hearts,
+//            R.drawable.nine_of_hearts,
+//            R.drawable.ten_of_hearts,
+//            R.drawable.jack_of_hearts,
+//            R.drawable.queen_of_hearts,
+//            R.drawable.king_of_hearts,
+//        };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,18 +110,22 @@ public class BlackJackActivity extends AppCompatActivity {
 //    public static int getDrawable(Context context, String cardname){
 //        return context.getResources().getIdentifier(cardname, "drawable", "com.codeclan.blackjack");
 
-    }
+// }
 
     public void onDealButtonClicked(View view) {
 
         player1hand.discardHand();
         deck.shuffle();
         blackJack.deal();
-
+        Card card1 = (Card)player1hand.getHand().get(0);
+        Card card2 = (Card)player1hand.getHand().get(1);
+        int card1id = card1.GetCardDrawableId(this);
+        int card2id = card2.GetCardDrawableId(this);
         card1image = (ImageView)findViewById(R.id.card1image);
         card1image.setImageResource(card1id);
         card2image = (ImageView)findViewById(R.id.card2image);
         card2image.setImageResource(card2id);
+
 
 
 

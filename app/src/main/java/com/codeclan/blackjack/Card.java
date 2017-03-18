@@ -1,5 +1,7 @@
 package com.codeclan.blackjack;
 
+import android.content.Context;
+
 public class Card {
 
     private Suit suit;
@@ -30,5 +32,10 @@ public class Card {
         if(value == 1) points += 10;
         if(value > 10) points = 10;
         return points;
+    }
+
+    public int GetCardDrawableId(Context context){
+        int cardDrawableId = context.getResources().getIdentifier(this.rank.toString().toLowerCase() + "_of_" + this.suit.toString().toLowerCase(), "drawable", "com.codeclan.blackjack");
+        return cardDrawableId;
     }
 }
