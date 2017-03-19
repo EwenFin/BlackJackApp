@@ -38,4 +38,8 @@ public class Card {
         int cardDrawableId = context.getResources().getIdentifier(this.rank.toString().toLowerCase() + "_of_" + this.suit.toString().toLowerCase(), "drawable", "com.codeclan.blackjack");
         return cardDrawableId;
     }
+
+    public boolean isAce() {
+        return (this.rank == Rank.ACE);
+    }
 }

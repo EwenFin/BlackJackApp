@@ -11,6 +11,7 @@ public class HandTest{
 
     Card card1;
     Card card2;
+    Card card3;
 
 
     @Before
@@ -18,6 +19,7 @@ public class HandTest{
         hand = new Hand();
         card1 = new Card(Suit.HEARTS, Rank.KING);
         card2 = new Card(Suit.DIAMONDS, Rank.JACK);
+        card3 = new Card(Suit.SPADES, Rank.ACE);
     }
 
     @Test
@@ -44,6 +46,9 @@ public class HandTest{
     public void testHandValue(){
         hand.addCardToHand(card1);
         assertEquals(10, hand.handValue());
+        hand.addCardToHand(card2);
+        hand.addCardToHand(card3);
+        assertEquals(21, hand.handValue());
     }
 
     @Test

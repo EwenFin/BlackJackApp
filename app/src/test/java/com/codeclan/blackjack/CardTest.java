@@ -46,4 +46,10 @@ public class CardTest{
         assertEquals(10, card1.cardValue());
         assertEquals(11, card3.cardValue());
     }
+
+    @Test
+    public void testIsAce(){
+        assertEquals(false, card1.isAce());
+        assertEquals(true, card3.isAce());
+    }
 }

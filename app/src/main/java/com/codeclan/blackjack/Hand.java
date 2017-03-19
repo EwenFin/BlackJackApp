@@ -27,12 +27,14 @@ public class Hand {
         hand.clear();
     }
 
-    public int handValue(){
+    public int handValue() {
         int result = 0;
-        for(Card card : hand){
+        for (Card card : hand) {
             result = result + card.cardValue();
+
         }
         return result;
+
     }
 
 

@@ -32,32 +32,32 @@
     <ImageView
         android:id ="@+id/card1image"
         android:layout_width="100dp"
-        android:layout_height="100dp" />
+        android:layout_height="130dp" />
 
     <ImageView
         android:id ="@+id/card2image"
         android:layout_width="100dp"
-        android:layout_height="100dp" />
+        android:layout_height="130dp" />
 
     <ImageView
         android:id ="@+id/card3image"
         android:layout_width="100dp"
-        android:layout_height="100dp" />
+        android:layout_height="130dp" />
 
     <ImageView
         android:id ="@+id/card4image"
         android:layout_width="100dp"
-        android:layout_height="100dp" />
+        android:layout_height="130dp" />
 
     <ImageView
         android:id ="@+id/card5image"
         android:layout_width="100dp"
-        android:layout_height="100dp" />
+        android:layout_height="130dp" />
 
     <ImageView
         android:id ="@+id/card6image"
         android:layout_width="100dp"
-        android:layout_height="100dp" />
+        android:layout_height="130dp" />
     </LinearLayout>
 
     <TextView
