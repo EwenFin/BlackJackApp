@@ -27,11 +27,12 @@ public class BlackJackActivity extends AppCompatActivity {
     ImageView card6image;
     BlackJack blackJack;
     Player player1;
-    Player dealer;
+    Dealer dealer;
     ArrayList<Player> players;
     Deck deck;
     Hand player1hand;
     Hand dealerhand;
+
 
 
     @Override
@@ -47,7 +48,7 @@ public class BlackJackActivity extends AppCompatActivity {
         dealerhand = new Hand();
         players = new ArrayList<Player>();
         player1 = new Player(name, player1hand);
-        dealer = new Player("Dealer", dealerhand);
+        dealer = new Dealer("Dealer", dealerhand);
         players.add(player1);
         players.add(dealer);
         blackJack = new BlackJack(players, deck);
@@ -132,6 +133,7 @@ public class BlackJackActivity extends AppCompatActivity {
         }
     }
     public void onStayButtonClicked(View view){
+
 
     }
 
