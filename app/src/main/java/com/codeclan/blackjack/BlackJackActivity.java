@@ -161,6 +161,12 @@ public class BlackJackActivity extends AppCompatActivity {
         if (player1hand.handValue() > 21) {
             yourhandtext.setText("YOU'VE BUSTED OUT");
             yournewhandtext.setText("");
+            winnertext.setText("The Dealer wins with "+ dealerhand.handValue());
+            Card card7 = (Card) dealerhand.getHand().get(1);
+            int card7id = card7.GetCardDrawableId(this);
+            card7image = (ImageView) findViewById(R.id.card7image);
+            card7image.setImageResource(card7id);
+
         }
 
 

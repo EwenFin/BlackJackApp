@@ -13,7 +13,7 @@
     <TextView
         android:id="@+id/game_text"
         android:textSize="40dp"
-        android:padding="50dp"
+        android:padding="20dp"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -27,28 +27,28 @@
 
     <ImageView
         android:id ="@+id/card1image"
-        android:layout_width="100dp"
-        android:layout_height="130dp" />
+        android:layout_width="110dp"
+        android:layout_height="150dp" />
 
     <ImageView
         android:id ="@+id/card2image"
-        android:layout_width="100dp"
-        android:layout_height="130dp" />
+        android:layout_width="110dp"
+        android:layout_height="150dp" />
 
     <ImageView
         android:id ="@+id/card3image"
-        android:layout_width="100dp"
-        android:layout_height="130dp" />
+        android:layout_width="110dp"
+        android:layout_height="150dp" />
 
     <ImageView
         android:id ="@+id/card4image"
-        android:layout_width="100dp"
-        android:layout_height="130dp" />
+        android:layout_width="110dp"
+        android:layout_height="150dp" />
 
     <ImageView
         android:id ="@+id/card5image"
-        android:layout_width="100dp"
-        android:layout_height="130dp" />
+        android:layout_width="110dp"
+        android:layout_height="150dp" />
 
 
     </LinearLayout>
@@ -80,28 +80,28 @@
 
         <ImageView
             android:id ="@+id/card6image"
-            android:layout_width="100dp"
-            android:layout_height="130dp" />
+            android:layout_width="110dp"
+            android:layout_height="150dp" />
 
         <ImageView
             android:id ="@+id/card7image"
-            android:layout_width="100dp"
-            android:layout_height="130dp" />
+            android:layout_width="110dp"
+            android:layout_height="150dp" />
 
         <ImageView
             android:id ="@+id/card8image"
-            android:layout_width="100dp"
-            android:layout_height="130dp" />
+            android:layout_width="110dp"
+            android:layout_height="150dp" />
 
         <ImageView
             android:id ="@+id/card9image"
-            android:layout_width="100dp"
-            android:layout_height="130dp" />
+            android:layout_width="110dp"
+            android:layout_height="150dp" />
 
         <ImageView
             android:id ="@+id/card10image"
-            android:layout_width="100dp"
-            android:layout_height="130dp" />
+            android:layout_width="110dp"
+            android:layout_height="150dp" />
 
 
 
