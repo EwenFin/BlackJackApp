@@ -39,7 +39,7 @@ public class HandTest{
     public void canShowHand(){
         hand.addCardToHand(card1);
         hand.addCardToHand(card2);
-        assertEquals("KING of HEARTS, JACK of DIAMONDS, ", hand.showHand());
+        assertEquals("KING of HEARTS JACK of DIAMONDS ", hand.showHand());
     }
 
     @Test
@@ -57,6 +57,13 @@ public class HandTest{
         assertEquals(card1, hand.getHand().get(0));
 
 
+    }
+
+    @Test
+    public void testContainsAce(){
+        hand.addCardToHand(card1);
+        hand.addCardToHand(card3);
+        assertEquals(true, hand.containsAce());
     }
 
 }
