@@ -13,12 +13,14 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class BlackJackActivity extends AppCompatActivity {
 
     TextView gameText;
     TextView yourhandtext;
     TextView yournewhandtext;
+    TextView dealerhandtext;
     ImageView card1image;
     ImageView card2image;
     ImageView card3image;
@@ -94,14 +96,16 @@ public class BlackJackActivity extends AppCompatActivity {
         yournewhandtext = (TextView)findViewById(R.id.your_new_hand_text);
 
         yournewhandtext.setText("");
-        yourhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue() + "\n \n The Dealer is showing the " + dealerCard.showCard());
-
+        yourhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue());
+        dealerhandtext = (TextView)findViewById(R.id.dealer_hand);
+        dealerhandtext.setText("The Dealer is showing the " + dealerCard.showCard());
     }
 
     public void onHitButtonClicked(View view) {
         deck.shuffle();
         blackJack.hit(player1);
         String yourhand = player1hand.showHand();
+        Card dealerCard = (Card) dealerhand.getHand().get(0);
         yourhandtext = (TextView) findViewById(R.id.your_hand_text);
         yourhandtext.setText("");
 
@@ -127,13 +131,33 @@ public class BlackJackActivity extends AppCompatActivity {
 
         yournewhandtext = (TextView) findViewById(R.id.your_new_hand_text);
         yournewhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue());
+        dealerhandtext = (TextView)findViewById(R.id.dealer_hand);
+        dealerhandtext.setText("The Dealer is showing the " + dealerCard.showCard());
         if (player1hand.handValue() > 21) {
             yourhandtext.setText("YOU'VE BUSTED OUT");
             yournewhandtext.setText("");
         }
+
+
     }
     public void onStayButtonClicked(View view){
+        yourhandtext = (TextView) findViewById(R.id.your_hand_text);
+        yourhandtext.setText("Your score is:" + player1hand.handValue());
 
+
+        try {
+            Thread.sleep(1000);
+        } catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+        if(dealer.doesdealerHit() == true && dealerhand.handValue() <= player1hand.handValue()){
+            blackJack.hit(dealer);
+        }
+
+
+        String dealerhas = dealerhand.showHand();
+        dealerhandtext = (TextView)findViewById(R.id.dealer_hand);
+        dealerhandtext.setText("The dealer has " + dealerhas + " for a score of " + dealerhand.handValue());
 
     }
 
