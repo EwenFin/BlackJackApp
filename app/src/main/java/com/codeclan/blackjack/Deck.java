@@ -12,6 +12,10 @@ public class Deck {
         buildDeck();
     }
 
+    public void setCards(ArrayList<Card> cards) {
+        this.cards = cards;
+    }
+
     public ArrayList<Card> getCards() {
         return cards;
     }

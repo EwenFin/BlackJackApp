@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
 
-public class DeckTest{
+public class DeckTest {
 
     Deck deck;
 
@@ -17,7 +17,7 @@ public class DeckTest{
     Player player1;
 
     @Before
-    public void before(){
+    public void before() {
         hand = new Hand();
         player1 = new Player("Ewen", hand);
         deck = new Deck();
@@ -27,32 +27,40 @@ public class DeckTest{
     }
 
     @Test
-    public void canAddCardToDeck(){
+    public void canAddCardToDeck() {
         deck.addCardToDeck(card1);
         assertEquals(53, deck.cardCount());
     }
 
     @Test
-    public void canRemoveCardFromDeck(){
+    public void canRemoveCardFromDeck() {
         deck.addCardToDeck(card1);
         deck.addCardToDeck(card2);
         assertEquals(54, deck.cardCount());
         deck.removeCardFromDeck(card1);
-        assertEquals(53,deck.cardCount());
+        assertEquals(53, deck.cardCount());
     }
 
     @Test
-    public void canDeal(){
+    public void canDeal() {
         deck.addCardToDeck(card1);
         deck.addCardToDeck(card2);
         deck.addCardToDeck(card3);
         deck.dealCard(player1);
         assertEquals(1, player1.hand.cardCount());
-        assertEquals(54 , deck.cardCount());
+        assertEquals(54, deck.cardCount());
     }
 
     @Test
-    public void fullDeck(){
+    public void fullDeck() {
         assertEquals(52, deck.cardCount());
+    }
+
+
+    @Test
+    public void testDealReducesDeckSize() {
+        deck.dealCard(player1);
+        assertEquals(51, deck.cardCount());
+    
     }
 }

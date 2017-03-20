@@ -69,9 +69,9 @@ public class BlackJackActivity extends AppCompatActivity {
 
         player1hand.discardHand();
         dealerhand.discardHand();
-        deck.buildDeck();
         deck.shuffle();
         blackJack.deal();
+
 
         Card card1 = (Card)player1hand.getHand().get(0);
         Card card2 = (Card)player1hand.getHand().get(1);
@@ -98,8 +98,8 @@ public class BlackJackActivity extends AppCompatActivity {
         card4image.setImageResource(android.R.color.transparent);
         card5image = (ImageView)findViewById(R.id.card5image);
         card5image.setImageResource(android.R.color.transparent);
-        card7image = (ImageView)findViewById(R.id.card7image);
-        card7image.setImageResource(android.R.color.transparent);
+
+
         card8image = (ImageView)findViewById(R.id.card8image);
         card8image.setImageResource(android.R.color.transparent);
         card9image = (ImageView)findViewById(R.id.card9image);
@@ -166,45 +166,42 @@ public class BlackJackActivity extends AppCompatActivity {
         card7image = (ImageView) findViewById(R.id.card7image);
         card7image.setImageResource(card7id);
 
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
 
-        while(dealerhand.handValue() < 21 && dealerhand.handValue() <= player1hand.handValue()) {
+
+        while(dealerhand.handValue() < 21 && dealerhand.handValue() <= player1hand.handValue() && player1hand.handValue() < 21) {
             try {
                 Thread.sleep(500);
-                } catch (InterruptedException ex) {
+            } catch (InterruptedException ex) {
                 Thread.currentThread().interrupt();
-                }
+            }
+
             blackJack.hit(dealer);
+
+
+            if (dealerhand.cardCount() == 3) {
+                Card card8 = (Card) dealerhand.getHand().get(2);
+                int card8id = card8.GetCardDrawableId(this);
+
+                card8image = (ImageView) findViewById(R.id.card8image);
+                card8image.setImageResource(card8id);
+
+            } else if (dealerhand.cardCount() == 4) {
+
+                Card card9 = (Card) dealerhand.getHand().get(3);
+                int card9id = card9.GetCardDrawableId(this);
+
+                card9image = (ImageView) findViewById(R.id.card9image);
+                card9image.setImageResource(card9id);
+
+            } else if (dealerhand.cardCount() == 5) {
+
+                Card card10 = (Card) dealerhand.getHand().get(4);
+                int card10id = card10.GetCardDrawableId(this);
+
+                card10image = (ImageView) findViewById(R.id.card10image);
+                card10image.setImageResource(card10id);
+            }
         }
-
-
-
-        if (dealerhand.cardCount() == 3) {
-            Card card8 = (Card) dealerhand.getHand().get(2);
-            int card8id = card8.GetCardDrawableId(this);
-
-            card8image = (ImageView) findViewById(R.id.card8image);
-            card8image.setImageResource(card8id);
-
-        } else if (dealerhand.cardCount() == 4) {
-            Card card9 = (Card) dealerhand.getHand().get(3);
-            int card9id = card9.GetCardDrawableId(this);
-
-            card9image = (ImageView) findViewById(R.id.card9image);
-            card9image.setImageResource(card9id);
-
-        } else if (player1hand.cardCount() == 5) {
-            Card card10 = (Card) dealerhand.getHand().get(4);
-            int card10id = card10.GetCardDrawableId(this);
-
-            card10image = (ImageView) findViewById(R.id.card10image);
-            card10image.setImageResource(card10id);
-        }
-
 
 
         String dealerhas = dealerhand.showHand();
