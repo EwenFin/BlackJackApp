@@ -114,6 +114,10 @@ public class BlackJackActivity extends AppCompatActivity {
 
         yournewhandtext.setText("");
         yourhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue());
+        if (player1hand.handValue() == 21){
+            yourhandtext.setText("BLACKJACK, You Win!");
+
+        }
         dealerhandtext = (TextView)findViewById(R.id.dealer_hand);
         dealerhandtext.setText("The Dealer is showing the " + card6.showCard());
     }
@@ -150,6 +154,7 @@ public class BlackJackActivity extends AppCompatActivity {
         yournewhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue());
         dealerhandtext = (TextView)findViewById(R.id.dealer_hand);
         dealerhandtext.setText("The Dealer is showing the " + dealerCard.showCard());
+
         if (player1hand.handValue() > 21) {
             yourhandtext.setText("YOU'VE BUSTED OUT");
             yournewhandtext.setText("");
@@ -168,7 +173,7 @@ public class BlackJackActivity extends AppCompatActivity {
 
 
 
-        while(dealerhand.handValue() < 21 && dealerhand.handValue() <= player1hand.handValue() && player1hand.handValue() < 21) {
+        while(dealerhand.handValue() < 21 && dealerhand.handValue() <= player1hand.handValue() && player1hand.handValue() < 22) {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException ex) {
