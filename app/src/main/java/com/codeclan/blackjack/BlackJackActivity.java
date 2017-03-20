@@ -21,6 +21,7 @@ public class BlackJackActivity extends AppCompatActivity {
     TextView yourhandtext;
     TextView yournewhandtext;
     TextView dealerhandtext;
+    TextView winnertext;
     ImageView card1image;
     ImageView card2image;
     ImageView card3image;
@@ -111,7 +112,9 @@ public class BlackJackActivity extends AppCompatActivity {
         String yourhand = player1hand.showHand();
         yourhandtext = (TextView)findViewById(R.id.your_hand_text);
         yournewhandtext = (TextView)findViewById(R.id.your_new_hand_text);
+        winnertext = (TextView)findViewById(R.id.winner_text);
 
+        winnertext.setText("");
         yournewhandtext.setText("");
         yourhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue());
         if (player1hand.handValue() == 21){
@@ -212,11 +215,23 @@ public class BlackJackActivity extends AppCompatActivity {
         String dealerhas = dealerhand.showHand();
         dealerhandtext = (TextView)findViewById(R.id.dealer_hand);
         dealerhandtext.setText("The dealer has " + dealerhas + " for a score of " + dealerhand.handValue());
+        String dealerwinner = "The Dealer wins with "+ dealerhand.handValue();
+        String userwinner = player1.getName() + " wins with " + player1hand.handValue();
+
+        if(dealerhand.handValue() >= player1hand.handValue() && dealerhand.handValue() < 22 || player1hand.handValue() > 21){
+            winnertext = (TextView)findViewById(R.id.winner_text);
+            winnertext.setText(dealerwinner);
+        }
+        else{
+            winnertext = (TextView)findViewById(R.id.winner_text);
+            winnertext.setText(userwinner);
+        }
+
 
     }
 
 
-    }
+}
 
 
 
