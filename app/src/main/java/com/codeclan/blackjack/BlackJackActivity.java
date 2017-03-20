@@ -119,6 +119,7 @@ public class BlackJackActivity extends AppCompatActivity {
         yourhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue());
         if (player1hand.handValue() == 21){
             yourhandtext.setText("BLACKJACK, You Win!");
+            winnertext.setText("You Win with BLACKJACK");
 
         }
         dealerhandtext = (TextView)findViewById(R.id.dealer_hand);
@@ -162,6 +163,7 @@ public class BlackJackActivity extends AppCompatActivity {
             yourhandtext.setText("YOU'VE BUSTED OUT");
             yournewhandtext.setText("");
             winnertext.setText("The Dealer wins with "+ dealerhand.handValue());
+            dealerhandtext.setText("");
             Card card7 = (Card) dealerhand.getHand().get(1);
             int card7id = card7.GetCardDrawableId(this);
             card7image = (ImageView) findViewById(R.id.card7image);
