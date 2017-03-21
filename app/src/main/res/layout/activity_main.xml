@@ -38,6 +38,14 @@
         android:textSize="36dp"
         android:textAlignment="center"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:gravity="center|bottom">
+
 
     <Button
         android:id="@+id/play_blackjack"
@@ -49,4 +57,17 @@
         android:textSize="24dp"
         android:onClick="onBlackJackButtonClicked"/>
 
+    <Button
+        android:id="@+id/play_poker"
+        android:layout_width="wrap_content"
+        android:text="@string/play_poker"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="30dp"
+        android:textSize="24dp"
+        android:onClick="onPokerButtonClicked"/>
+
+
+
+    </LinearLayout>
 </LinearLayout>

@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView welcomeImage;
     EditText NameEntry;
     Button BlackJackButton;
+    Button PokerButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         NameEntry = (EditText)findViewById(R.id.name_entry);
         BlackJackButton = (Button)findViewById(R.id.play_blackjack);
+        PokerButton = (Button)findViewById(R.id.play_poker);
 
         welcome = (TextView)findViewById(R.id.welcome);
         welcome.setText("Welcome to CodeClanCasino, please gamble responsibly...");
@@ -45,6 +47,15 @@ public class MainActivity extends AppCompatActivity {
         String name = NameEntry.getText().toString();
 
         Intent intent = new Intent(this, BlackJackActivity.class);
+        intent.putExtra("Name", name);
+
+        startActivity(intent);
+    }
+
+    public void onPokerButtonClicked(View button){
+        String name = NameEntry.getText().toString();
+
+        Intent intent = new Intent(this, PokerActivity.class);
         intent.putExtra("Name", name);
 
         startActivity(intent);
