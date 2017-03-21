@@ -36,7 +36,35 @@ public class PokerTest {
     @Test
     public void canDeal(){
         poker.deal();
-        assertEquals(5, player1hand.cardCount());
-        assertEquals(5, player2hand.cardCount());
+        assertEquals(2, player1hand.cardCount());
+        assertEquals(2, player2hand.cardCount());
     }
+
+    @Test
+    public void flop3Cards(){
+        poker.addToFlop();
+        assertEquals(3, poker.cardCount(poker.getFlop()));
+    }
+
+    @Test
+    public void riverCard(){
+        poker.addToRiver();
+        assertEquals(1, poker.cardCount(poker.getRiver()));
+    }
+
+    @Test
+    public void turnCard(){
+        poker.addToTurn();
+        assertEquals(1, poker.cardCount(poker.getTurn()));
+    }
+
+    @Test
+    public void testBoard(){
+        poker.addToFlop();
+        poker.addToRiver();
+        poker.addToTurn();
+        assertEquals(5, poker.cardCount(poker.getBoard()));
+    }
+
+
 }

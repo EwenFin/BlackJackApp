@@ -51,4 +51,11 @@ public class Deck {
             }
         }
     }
+
+    public void moveCard(ArrayList<Card> centre){
+        Card card = cards.get(cards.size() - 1);
+        centre.add(card);
+        removeCardFromDeck(card);
+
+    }
 }
