@@ -68,8 +68,6 @@ public class PokerActivity extends AppCompatActivity {
 
         Card card1 = (Card) player1hand.getHand().get(0);
         Card card2 = (Card) player1hand.getHand().get(1);
-        Card card3 = (Card) player2hand.getHand().get(0);
-        Card card4 = (Card) player2hand.getHand().get(1);
 
         int card1id = card1.GetCardDrawableId(this);
         int card2id = card2.GetCardDrawableId(this);
@@ -84,6 +82,56 @@ public class PokerActivity extends AppCompatActivity {
         card3image.setImageResource(card3id);
         card4image = (ImageView) findViewById(R.id.card4image);
         card4image.setImageResource(card4id);
+    }
+
+    public void onFlopButtonClicked(View view){
+        poker.addToFlop();
+        Card card5 = (Card) poker.getFlop().get(0);
+        Card card6 = (Card) poker.getFlop().get(1);
+        Card card7 = (Card) poker.getFlop().get(2);
+
+        int card5id = card5.GetCardDrawableId(this);
+        int card6id = card6.GetCardDrawableId(this);
+        int card7id = card7.GetCardDrawableId(this);
+
+        card5image = (ImageView) findViewById(R.id.card5image);
+        card5image.setImageResource(card5id);
+        card6image = (ImageView) findViewById(R.id.card6image);
+        card6image.setImageResource(card6id);
+        card7image = (ImageView) findViewById(R.id.card7image);
+        card7image.setImageResource(card7id);
+
+    }
+
+    public void onTurnButtonClicked(View view){
+        poker.addToTurn();
+        Card card8 = (Card) poker.getTurn().get(0);
+
+        int card8id = card8.GetCardDrawableId(this);
+
+        card8image = (ImageView) findViewById(R.id.card8image);
+        card8image.setImageResource(card8id);
+    }
+    public void onRiverButtonClicked(View view){
+        poker.addToRiver();
+        Card card9 = (Card) poker.getRiver().get(0);
+
+        int card9id = card9.GetCardDrawableId(this);
+
+        card9image = (ImageView) findViewById(R.id.card9image);
+        card9image.setImageResource(card9id);
+
+    }
+    public void onCallButtonClicked(View view){
+        Card card3 = (Card) player2hand.getHand().get(0);
+        Card card4 = (Card) player2hand.getHand().get(1);
+        int card3id = card3.GetCardDrawableId(this);
+        int card4id = card4.GetCardDrawableId(this);
+        card3image = (ImageView) findViewById(R.id.card3image);
+        card3image.setImageResource(card3id);
+        card4image = (ImageView) findViewById(R.id.card4image);
+        card4image.setImageResource(card4id);
+
     }
 
 

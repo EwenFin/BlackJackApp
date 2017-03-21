@@ -42,7 +42,7 @@
         </LinearLayout>
 
     <TextView
-        android:id = "@+id/your_hand_text"
+        android:id = "@+id/your_poker_hand_text"
         android:padding="10dp"
         android:layout_gravity="center"
         android:textSize="20dp"
@@ -83,11 +83,20 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center">
+        <TextView
+            android:id = "@+id/dealer_hand_text"
+            android:padding="10dp"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:textColor="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
 
         <ImageView
             android:id ="@+id/card3image"
@@ -150,6 +159,17 @@
             android:textAllCaps="false"
             android:textSize="30dp"
             android:onClick="onRiverButtonClicked"/>
+
+        <Button
+            android:id="@+id/call_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/call"
+            android:textAllCaps="false"
+            android:textSize="30dp"
+            android:onClick="onCallButtonClicked"/>
+
 
 
 
