@@ -80,18 +80,7 @@ public class BlackJackTest {
 
 
 
-//        @Test
-//        public void testWinner(){
-//            player1hand.addCardToHand(card1);
-//            player1hand.addCardToHand(card4);
-//            player2hand.addCardToHand(card3);
-//            player2hand.addCardToHand(card2);
-//            assertEquals("Steven Wins with 21", game.winner(player1, player2));
-//        }
-//
-
-
-    }
+}
 
 
 

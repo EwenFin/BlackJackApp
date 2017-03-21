@@ -1,19 +1,14 @@
 package com.codeclan.blackjack;
 
-import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
-import android.provider.ContactsContract;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 public class BlackJackActivity extends AppCompatActivity {
 
@@ -68,6 +63,8 @@ public class BlackJackActivity extends AppCompatActivity {
 
     public void onDealButtonClicked(View view) {
 
+        MediaPlayer player = MediaPlayer.create(this, R.raw.cardfan);
+        player.start();
         player1hand.discardHand();
         dealerhand.discardHand();
         deck.shuffle();
@@ -127,6 +124,8 @@ public class BlackJackActivity extends AppCompatActivity {
     }
 
     public void onHitButtonClicked(View view) {
+        MediaPlayer player = MediaPlayer.create(this, R.raw.cardslide);
+        player.start();
         deck.shuffle();
         blackJack.hit(player1);
         String yourhand = player1hand.showHand();
@@ -192,7 +191,8 @@ public class BlackJackActivity extends AppCompatActivity {
             }
 
             blackJack.hit(dealer);
-
+            MediaPlayer player = MediaPlayer.create(this, R.raw.cardslide);
+            player.start();
 
             if (dealerhand.cardCount() == 3) {
                 Card card8 = (Card) dealerhand.getHand().get(2);
