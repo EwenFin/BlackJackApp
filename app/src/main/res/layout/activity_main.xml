@@ -35,7 +35,8 @@
         android:layout_marginTop="50dp"
         android:layout_weight="0.10"
         android:hint="@string/enter_name"
-        android:textSize="36dp" />
+        android:textSize="36dp"
+        android:textAlignment="center"/>
 
 
     <Button

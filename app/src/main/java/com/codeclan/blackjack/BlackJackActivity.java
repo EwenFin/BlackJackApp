@@ -14,7 +14,6 @@ public class BlackJackActivity extends AppCompatActivity {
 
     TextView gameText;
     TextView yourhandtext;
-    TextView yournewhandtext;
     TextView dealerhandtext;
     TextView winnertext;
     ImageView card1image;
@@ -108,11 +107,9 @@ public class BlackJackActivity extends AppCompatActivity {
 
         String yourhand = player1hand.showHand();
         yourhandtext = (TextView)findViewById(R.id.your_hand_text);
-        yournewhandtext = (TextView)findViewById(R.id.your_new_hand_text);
         winnertext = (TextView)findViewById(R.id.winner_text);
 
         winnertext.setText("");
-        yournewhandtext.setText("");
         yourhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue());
         if (player1hand.handValue() == 21){
             yourhandtext.setText("BLACKJACK, You Win!");
@@ -153,14 +150,12 @@ public class BlackJackActivity extends AppCompatActivity {
             card5image.setImageResource(card5id);
         }
 
-        yournewhandtext = (TextView) findViewById(R.id.your_new_hand_text);
-        yournewhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue());
+        yourhandtext.setText("You have " + yourhand + " for a score of " + player1hand.handValue());
         dealerhandtext = (TextView)findViewById(R.id.dealer_hand);
         dealerhandtext.setText("The Dealer is showing the " + dealerCard.showCard());
 
         if (player1hand.handValue() > 21) {
             yourhandtext.setText("YOU'VE BUSTED OUT");
-            yournewhandtext.setText("");
             winnertext.setText("The Dealer wins with "+ dealerhand.handValue());
             dealerhandtext.setText("");
             Card card7 = (Card) dealerhand.getHand().get(1);
@@ -173,9 +168,6 @@ public class BlackJackActivity extends AppCompatActivity {
 
     }
     public void onStayButtonClicked(View view) {
-        yourhandtext = (TextView) findViewById(R.id.your_hand_text);
-        yourhandtext.setText("Your score is:" + player1hand.handValue());
-
         Card card7 = (Card) dealerhand.getHand().get(1);
         int card7id = card7.GetCardDrawableId(this);
         card7image = (ImageView) findViewById(R.id.card7image);
