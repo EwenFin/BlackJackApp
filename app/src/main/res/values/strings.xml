@@ -6,4 +6,7 @@
     <string name="hit">Hit</string>
     <string name="deal">Deal</string>
     <string name="play_poker">Play Poker</string>
+    <string name="flop">flop</string>
+    <string name="turn">turn</string>
+    <string name="river">river</string>
 </resources>
