@@ -8,22 +8,22 @@
     android:background="@color/green"
     tools:context="com.codeclan.blackjack.MainActivity">
 
-
-    <ImageView
-        android:id="@+id/welcome_image"
-        android:padding="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="350dp" />
-
     <TextView
         android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="top"
-        android:textSize="36dp"
+        android:textSize="40dp"
         android:textAlignment="center"
-        android:padding="30dp"/>
+        android:padding="25dp"/>
+
+
+    <ImageView
+        android:id="@+id/welcome_image"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="350dp" />
 
 
     <EditText
@@ -44,7 +44,8 @@
         android:text="@string/play_blackjack"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:padding="50dp"
+        android:padding="30dp"
+        android:textSize="24dp"
         android:onClick="onBlackJackButtonClicked"/>
 
 </LinearLayout>

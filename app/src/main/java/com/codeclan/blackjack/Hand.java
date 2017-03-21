@@ -27,13 +27,14 @@ public class Hand {
         hand.clear();
     }
 
-    public boolean containsAce() {
+    public int containsAce() {
+        int count = 0;
         for (Card card : hand) {
-            if (card.isAce() == true) {
-                return true;
+            if (card.isAce()) {
+                count += 1;
             }
         }
-        return false;
+        return count;
     }
 
     public int handValue(){
@@ -42,8 +43,9 @@ public class Hand {
             result = result + card.cardValue();
 
         }
-        if(this.containsAce() == true && result > 21){
-            result = result - 10;
+        if(result > 21){
+            int AceCount = this.containsAce();
+            result = result - (10*AceCount);
         }
         return result;
 

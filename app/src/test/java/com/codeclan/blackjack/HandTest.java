@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertSame;
 
 public class HandTest{
 
@@ -12,6 +13,7 @@ public class HandTest{
     Card card1;
     Card card2;
     Card card3;
+    Card card4;
 
 
     @Before
@@ -20,6 +22,7 @@ public class HandTest{
         card1 = new Card(Suit.HEARTS, Rank.KING);
         card2 = new Card(Suit.DIAMONDS, Rank.JACK);
         card3 = new Card(Suit.SPADES, Rank.ACE);
+        card4 = new Card(Suit.CLUBS, Rank.ACE);
     }
 
     @Test
@@ -63,7 +66,15 @@ public class HandTest{
     public void testContainsAce(){
         hand.addCardToHand(card1);
         hand.addCardToHand(card3);
-        assertEquals(true, hand.containsAce());
+        assertEquals(1, hand.containsAce());
+    }
+
+    @Test
+    public void testMultipleAcesHandValue(){
+        hand.addCardToHand(card1);
+        hand.addCardToHand(card3);
+        hand.addCardToHand(card4);
+        assertEquals(12, hand.handValue());
     }
 
 }
